@@ -1,4 +1,4 @@
-# RoboDam 2026 - Smart Home Energy Monitoring and Monitoring System
+# RoboDam 2026 - Smart Home Energy Monitoring System
 
 This repository contains the source code for an ESP32-based wireless energy monitoring and safety system, developed for the RoboDam 2026 competition. 
 
