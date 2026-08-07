@@ -1,4 +1,4 @@
-# RoboDam 2026 - Energy Monitoring & Overload Protection System
+# RoboDam 2026 - Smart Home Energy Monitoring and Monitoring System
 
 This repository contains the source code for an ESP32-based wireless energy monitoring and safety system, developed for the RoboDam 2026 competition. 
 
@@ -17,13 +17,13 @@ The system consists of a central Hub and multiple Sender Nodes communicating via
 * `/sender_device3/` - Contains the ESP-NOW transmitter code for Node 3.
 * `/sender_device4/` - Contains the ESP-NOW transmitter code for Node 4.
 
-## 🛠️ Hardware Requirements
+## 🛠️ Hardware Components
 * ESP32 Development Boards (1x Hub, up to 4x Nodes)
 * SSD1306 I2C OLED Displays
 * 5V Relay Modules (Active LOW)
 * Active Buzzers
 * LEDs and current-limiting resistors (220Ω - 330Ω)
-* Current/Voltage Sensors (e.g., ACS712) for real-world integration.
+* Current/Voltage Sensors for real-world integration.
 
 ## ⚡ Pin Configuration (Node)
 | Component | ESP32 Pin |
