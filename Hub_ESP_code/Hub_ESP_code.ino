@@ -4,6 +4,7 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include <ESPmDNS.h>
 
 // --- ROUTER WI-FI CREDENTIALS ---
 const char* ssid = "";          // Wi-Fi Name
@@ -191,6 +192,11 @@ void setup() {
   Serial.println(WiFi.localIP());
   Serial.print("Wi-Fi Channel: ");
   Serial.println(WiFi.channel());
+  if (!MDNS.begin("robodam")) {
+    Serial.println("Error setting up MDNS responder!");
+  } else {
+    Serial.println("mDNS responder started at http://robodam.local");
+  }
 
   // Initialize ESP-NOW
   if (esp_now_init() == ESP_OK) {
