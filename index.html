@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link href="favicon.png" rel="icon" type="image/png"/>
+  <title>
+   Power Rangers Dashboard
+  </title>
+  <script src="https://unpkg.com/lucide@latest">
+  </script>
+  <link href="final_style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header class="top-header">
+   <div class="system-title">
+    <h1>
+     Smart Energy &amp; AI Diagnostic System
+    </h1>
+    <p>
+     Real-Time Energy Monitoring Dashboard
+    </p>
+   </div>
+   <div class="header-status-group">
+    <div class="connection-box">
+     <span>
+      System Status:
+     </span>
+     <span class="status disconnected" id="connection-status">
+      Disconnected
+     </span>
+    </div>
+    <div class="clock-box">
+     <span>
+      Live Time
+     </span>
+     <strong id="live-clock">
+      00:00:00
+     </strong>
+    </div>
+   </div>
+  </header>
+  <main class="dashboard-container">
+   <div class="top-dashboard-grid">
+    <section class="energy-overview">
+     <h2 class="section-title">
+      Energy Overview
+     </h2>
+     <div class="hero-section">
+      <div class="energy-metric">
+       <div class="energy-icon credit-icon">
+        <i data-lucide="wallet-cards">
+        </i>
+       </div>
+       <div class="energy-metric-content">
+        <p class="section-label">
+         Remaining Credit
+        </p>
+        <h2 id="prepaid-balance">
+         0.00 EGP
+        </h2>
+       </div>
+      </div>
+      <div class="energy-bottom-row">
+       <div class="energy-metric time-metric">
+        <div class="energy-icon time-icon">
+         <i data-lucide="clock-3">
+         </i>
+        </div>
+        <div class="energy-metric-content">
+         <p class="section-label">
+          Predicted Time Left
+         </p>
+         <h3 id="predicted-time">
+          --
+         </h3>
+        </div>
+       </div>
+       <div class="energy-vertical-divider">
+       </div>
+       <div class="energy-metric load-metric">
+        <div class="energy-icon load-icon">
+         <i data-lucide="activity">
+         </i>
+        </div>
+        <div class="energy-metric-content">
+         <p class="section-label">
+          Total Household Load
+         </p>
+         <h3 id="total-load">
+          0 W
+         </h3>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="ai-column">
+     <div class="ai-section-header">
+      <h2>
+       AI Recommendations &amp; Diagnostics
+      </h2>
+      <span class="live-indicator offline-feed">
+       Offline
+      </span>
+     </div>
+     <div class="ai-section">
+      <div class="ai-feed" id="ai-feed">
+       <div class="alert-card alert-info">
+        <div>
+         <h3>
+          Waiting for Live Data
+         </h3>
+         <p>
+          AI recommendations and diagnostic alerts will appear here
+                                when the backend connection is active.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div id="feed-more-hint">
+       ↓ More recommendations
+      </div>
+     </div>
+    </section>
+   </div>
+   <section class="appliances-section">
+    <h2 class="section-title">
+     Live Appliance Monitoring
+    </h2>
+    <div class="appliance-grid">
+     <article class="appliance-card">
+      <div class="card-header">
+       <h3 id="node1-name">
+        Refrigerator
+       </h3>
+       <span class="node-status offline" id="node1-status">
+        Offline
+       </span>
+      </div>
+      <div class="measurements">
+       <div class="measurement-item">
+        <span class="measurement-label">
+         Voltage
+        </span>
+        <strong id="node1-voltage">
+         0.0 V
+        </strong>
+       </div>
+       <div class="measurement-item">
+        <span class="measurement-label">
+         Current
+        </span>
+        <strong id="node1-current">
+         0.00 A
+        </strong>
+       </div>
+       <div class="measurement-item">
+        <span class="measurement-label">
+         Power
+        </span>
+        <strong id="node1-watts">
+         0.0 W
+        </strong>
+       </div>
+      </div>
+      <div class="relay-section">
+       <span>
+        Relay Control
+       </span>
+       <button class="relay-button relay-on" id="node1-relay" type="button">
+        ON
+       </button>
+      </div>
+     </article>
+     <article class="appliance-card">
+      <div class="card-header">
+       <h3 id="node2-name">
+        Air Conditioner
+       </h3>
+       <span class="node-status offline" id="node2-status">
+        Offline
+       </span>
+      </div>
+      <div class="measurements">
+       <div class="measurement-item">
+        <span class="measurement-label">
+         Voltage
+        </span>
+        <strong id="node2-voltage">
+         0.0 V
+        </strong>
+       </div>
+       <div class="measurement-item">
+        <span class="measurement-label">
+         Current
+        </span>
+        <strong id="node2-current">
+         0.00 A
+        </strong>
+       </div>
+       <div class="measurement-item">
+        <span class="measurement-label">
+         Power
+        </span>
+        <strong id="node2-watts">
+         0.0 W
+        </strong>
+       </div>
+      </div>
+      <div class="relay-section">
+       <span>
+        Relay Control
+       </span>
+       <button class="relay-button relay-on" id="node2-relay" type="button">
+        ON
+       </button>
+      </div>
+     </article>
+     <article class="appliance-card">
+      <div class="card-header">
+       <h3 id="node3-name">
+        Washing Machine
+       </h3>
+       <span class="node-status offline" id="node3-status">
+        Offline
+       </span>
+      </div>
+      <div class="measurements">
+       <div class="measurement-item">
+        <span class="measurement-label">
+         Voltage
+        </span>
+        <strong id="node3-voltage">
+         0.0 V
+        </strong>
+       </div>
+       <div class="measurement-item">
+        <span class="measurement-label">
+         Current
+        </span>
+        <strong id="node3-current">
+         0.00 A
+        </strong>
+       </div>
+       <div class="measurement-item">
+        <span class="measurement-label">
+         Power
+        </span>
+        <strong id="node3-watts">
+         0.0 W
+        </strong>
+       </div>
+      </div>
+      <div class="relay-section">
+       <span>
+        Relay Control
+       </span>
+       <button class="relay-button relay-on" id="node3-relay" type="button">
+        ON
+       </button>
+      </div>
+     </article>
+     <article class="appliance-card">
+      <div class="card-header">
+       <h3 id="node4-name">
+        TV
+       </h3>
+       <span class="node-status offline" id="node4-status">
+        Offline
+       </span>
+      </div>
+      <div class="measurements">
+       <div class="measurement-item">
+        <span class="measurement-label">
+         Voltage
+        </span>
+        <strong id="node4-voltage">
+         0.0 V
+        </strong>
+       </div>
+       <div class="measurement-item">
+        <span class="measurement-label">
+         Current
+        </span>
+        <strong id="node4-current">
+         0.00 A
+        </strong>
+       </div>
+       <div class="measurement-item">
+        <span class="measurement-label">
+         Power
+        </span>
+        <strong id="node4-watts">
+         0.0 W
+        </strong>
+       </div>
+      </div>
+      <div class="relay-section">
+       <span>
+        Relay Control
+       </span>
+       <button class="relay-button relay-on" id="node4-relay" type="button">
+        ON
+       </button>
+      </div>
+     </article>
+    </div>
+   </section>
+   <section class="analytics-section">
+    <div class="analytics-section-header">
+     <h2>
+      Energy Analytics
+     </h2>
+     <span class="analytics-status">
+      Waiting for Live Data
+     </span>
+    </div>
+    <div class="analytics-grid">
+     <div class="chart-card">
+      <div class="chart-card-header">
+       <h3>
+        Real-Time Power Consumption
+       </h3>
+       <span>
+        Last 60 Seconds
+       </span>
+      </div>
+      <div class="chart-placeholder" id="power-chart-container">
+       <canvas id="power-chart">
+       </canvas>
+       <p class="chart-waiting-text">
+        Chart will appear when live data is connected.
+       </p>
+      </div>
+     </div>
+     <div class="chart-card">
+      <div class="chart-card-header">
+       <h3>
+        Load Distribution
+       </h3>
+      </div>
+      <div class="chart-placeholder" id="load-chart-container">
+       <div class="load-distribution-layout">
+        <div class="load-donut-wrap">
+         <canvas id="load-chart">
+         </canvas>
+        </div>
+        <div class="load-breakdown" id="load-breakdown">
+        </div>
+       </div>
+       <p class="chart-waiting-text">
+        Load distribution will appear when live data is connected.
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <footer class="dashboard-footer">
+    <div class="footer-content">
+     <span class="footer-line">
+     </span>
+     <div class="footer-text">
+      <span class="powered-by">
+       Powered by
+      </span>
+      <span class="brand">
+       Power Rangers
+      </span>
+     </div>
+     <span class="footer-line">
+     </span>
+    </div>
+   </footer>
+  </main>
+  <script>
+   // Get the clock element from the page
+    const liveClock = document.getElementById("live-clock");
+
+    // Function that updates the clock
+    function updateClock() {
+        const now = new Date();
+
+        liveClock.textContent = now.toLocaleTimeString();
+    }
+
+    // Run once immediately
+    updateClock();
+
+    // Update every second
+    setInterval(updateClock, 1000);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js">
+  </script>
+  <script src="mock_client.js">
+  </script>
+  <script>
+   lucide.createIcons();
+  </script>
+ </body>
+</html>
