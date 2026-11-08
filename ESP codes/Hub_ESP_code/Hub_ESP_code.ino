@@ -7,8 +7,8 @@
 #include <ESPmDNS.h>
 
 // --- ROUTER WI-FI CREDENTIALS ---
-const char* ssid = "Orange B";          // Wi-Fi Name
-const char* password = "Basemelgamal2";  // Wi-Fi Password
+const char* ssid = "";          // Wi-Fi Name
+const char* password = "";  // Wi-Fi Password
 
 WebServer server(80);
 
