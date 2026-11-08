@@ -19,8 +19,8 @@ from ai_engine import build_ai_payload
 from auto_training_manager import check_and_train
 
 # --- CONFIGURATION ---
-TELEGRAM_TOKEN = "REDACTED"
-HUB_URL = "http://REDACTED/data"  # Current ESP32 hub address
+TELEGRAM_TOKEN = ""
+HUB_URL = ""  # Current ESP32 hub address
 
 # Hardware IDs stay stable for relay routing; these labels are presentation only.
 NODE_DISPLAY_NAMES = {
