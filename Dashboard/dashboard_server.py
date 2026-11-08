@@ -1,4 +1,5 @@
 import asyncio
+import os
 import httpx
 import json
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
@@ -8,7 +9,7 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 
 # --- CONFIGURATION ---
-TELEGRAM_TOKEN = "REDACTED"
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN", "")
 HUB_URL = "http:// 10.127.130.8/data"  # <-- CHANGE TO YOUR HUB IP
 
 # Global state to hold nodes and their manual button states
